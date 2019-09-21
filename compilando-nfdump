@@ -1,0 +1,15 @@
+#Debian 9
+apt-get install gcc make flex bison libpcap-dev libbz2-dev automake libtool git pkgconf autoconf
+
+
+git clone https://github.com/phaag/nfdump.git
+
+cd nfdump
+./autogen.sh
+./configure --enable-nfpcapd --enable-nsel --enable-devel --enable-readpcap
+autoreconf -f -i
+make
+make install
+ldconfig
+
+/usr/local/bin/nfcapd -e -s 200 -w -D -T all -p 2055 -n Robson,1.1.1.1,/tmp/robson -S 1 -t 3600 -B 512000
