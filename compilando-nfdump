@@ -13,3 +13,4 @@ make install
 ldconfig
 
 /usr/local/bin/nfcapd -e -s 200 -w -D -T all -p 2055 -n Robson,1.1.1.1,/tmp/robson -S 1 -t 3600 -B 512000
+/usr/local/bin/nfdump -onel -r nfcapd.201909211500
